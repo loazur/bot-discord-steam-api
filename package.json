@@ -1,0 +1,17 @@
+{
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "description": "A simple test bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "help"
+  },
+  "author": "loazur",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0"
+  }
+}

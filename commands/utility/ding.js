@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Répond avec Dong'),
 		
 	async execute(interaction) {
-		await interaction.reply('ding');
+		await interaction.reply('DONNGG');
 	},
 };
 

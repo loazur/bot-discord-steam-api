@@ -9,18 +9,21 @@ module.exports = {
     async execute(interaction) {
         const commandsList = interaction.client.commands;
 		
-        // ! Pas fini (y ajouter plus d'infos)
-        let textHelp = "**__Help :__** \n";
+        // ! Pas fini (y ajouter plus d'infos) -> utiliser un embed
+        let textHelp = "***__Help :__*** \n";
         
         for (let [key, value] of commandsList)
         {
-            textHelp += `- ${key} \n`;
+            if (key == "help")
+            {
+                textHelp += `- **__${key}__**\n`;
+                continue;
+            }
 
+            textHelp += `- **${key}** \n`;
         }
 
         await interaction.reply(textHelp);
-
-       
 
     }
 

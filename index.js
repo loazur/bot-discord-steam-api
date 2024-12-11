@@ -1,7 +1,8 @@
 // Importe les différentes bibliothèques
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { ActivityType } = require('discord.js')
 const { token } = require('./config.json');
 
 // Créé une nouvelle instance de client

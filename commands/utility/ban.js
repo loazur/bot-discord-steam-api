@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits, flatten } = require("discord.js");
 
 module.exports = {
     category: "admin",
@@ -15,6 +15,12 @@ module.exports = {
     
     async execute(interaction) {
         const user = interaction.options.getUser('cible');
+
+        // Impossibilité de se bannir sois même
+        if (interaction.user.id == user.id)
+        {
+            return interaction.reply({content: `Vous ne pouvez pas vous bannir vous même ❌`, flags: MessageFlags.Ephemeral});
+        }
         
         try {
             await interaction.guild.members.ban(user);

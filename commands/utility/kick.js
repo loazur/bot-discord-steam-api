@@ -19,7 +19,7 @@ module.exports = {
         // Impossibilité de se kick sois même 
         if (interaction.user.id == user.id)
         {
-            return interaction.reply({content: `Vous ne pouvez pas vous bannir vous même ❌`, flags: MessageFlags.Ephemeral});
+            return interaction.reply({content: `Vous ne pouvez pas vous kick vous même ❌`, flags: MessageFlags.Ephemeral});
         }
         
         try {

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 
 module.exports = {
     category: "bot-admin",
@@ -30,7 +30,7 @@ module.exports = {
             const newCommand = require(`./${command.data.name}.js`);
 
             interaction.client.commands.set(newCommand.data.name, newCommand);
-            await interaction.reply(`La commande : '${newCommand.data.name}', a été mise à jour.`);
+            await interaction.reply({ content : `La commande : '${newCommand.data.name}', a été mise à jour.`, flags: MessageFlags.Ephemeral });
 
         } catch (error) {
             console.error(error);

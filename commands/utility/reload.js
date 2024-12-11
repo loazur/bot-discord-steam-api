@@ -6,7 +6,8 @@ module.exports = {
 		.setName('reload')
 		.setDescription('Redémarre une commande')
 		.addStringOption(option =>  
-			option.setName('command')
+			option
+                .setName('command')
 				.setDescription('La commande à redémarrer')
 				.setRequired(true)),
 

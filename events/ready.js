@@ -5,6 +5,6 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 	execute(client) {
-		console.log(`Le client s'est bien connecté avec le compte : ${client.user.tag} !`);
+		console.log(`Le client s'est bien connecté avec le compte: ${client.user.tag} !`);
 	},
 };

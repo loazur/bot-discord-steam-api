@@ -7,18 +7,18 @@ module.exports = {
 		.setDescription('Permet de kick un membre')
 		.addUserOption(option =>  
 			option
-                .setName('target')
+                .setName('cible')
 				.setDescription('Le membre à kick')
 				.setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers),
 
     
     async execute(interaction) {
-        const user = interaction.options.getUser('target');
+        const user = interaction.options.getUser('cible');
         
         try {
             await interaction.guild.members.kick(user);
-            await interaction.reply(`${user} a bien été kick.`);
+            await interaction.reply(`${user} a bien été kick ✅`);
         } catch (error) {
             console.error(error);
             await interaction.reply({content: `Une erreur est survenue lors du kick.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral})

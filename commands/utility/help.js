@@ -7,7 +7,21 @@ module.exports = {
 		.setDescription('Affiche un message d\'aide'),
 	 
     async execute(interaction) {
-        await interaction.reply("*En cours d'implémentation...*");
+        const commandsList = interaction.client.commands;
+		
+        // ! Pas fini (y ajouter plus d'infos)
+        let textHelp = "**__Help :__** \n";
+        
+        for (let [key, value] of commandsList)
+        {
+            textHelp += `- ${key} \n`;
+
+        }
+
+        await interaction.reply(textHelp);
+
+       
+
     }
 
 }

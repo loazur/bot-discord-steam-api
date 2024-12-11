@@ -13,7 +13,7 @@ module.exports = {
 	async execute(interaction) {
         // ID de loazur
         if (interaction.user.id != '496730516234436618') {
-            return interaction.reply("Commande inutilisable pour vous.")
+            return interaction.reply({ content : "Commande inutilisable pour vous.", flags : MessageFlags.Ephemeral })
         }
 
 		const commandName = interaction.options.getString("command", true).toLowerCase();
@@ -21,7 +21,7 @@ module.exports = {
 
         if (!command)
         {
-            return interaction.reply(`La commande : '${commandName}' n'existe pas.`);
+            return interaction.reply({ content : `La commande : '${commandName}' n'existe pas.`, flags: MessageFlags.Ephemeral });
         }
 
         delete require.cache[require.resolve(`./${command.data.name}.js`)];
@@ -34,7 +34,7 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
-            await interaction.reply(`Une erreur est survenu lors du redémarrage de : '${command.data.name}':\n ${error.message}`);
+            await interaction.reply({ content : `Une erreur est survenu lors du redémarrage de : '${command.data.name}':\n ${error.message}`, flags: MessageFlags.Ephemeral });
         }
 
 	},

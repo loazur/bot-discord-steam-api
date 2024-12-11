@@ -1,14 +1,14 @@
 const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require("discord.js");
 
 module.exports = {
-    category: "admin",
+    category: "moderation",
     data: new SlashCommandBuilder()
 		.setName('unban')
-		.setDescription('Permet de unban un membre')
+		.setDescription('Permet de unban un membre.')
 		.addUserOption(option =>  
 			option
                 .setName('cible')
-				.setDescription('Le membre à unban')
+				.setDescription('Le membre à unban.')
 				.setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 

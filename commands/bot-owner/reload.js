@@ -1,14 +1,14 @@
 const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 
 module.exports = {
-    category: "bot-admin",
+    category: "bot-owner",
     data: new SlashCommandBuilder()
 		.setName('reload')
-		.setDescription('Redémarre une commande')
+		.setDescription('Redémarre une commande.')
 		.addStringOption(option =>  
 			option
                 .setName('commande')
-				.setDescription('La commande à redémarrer')
+				.setDescription('La commande à redémarrer.')
 				.setRequired(true)),
 
 	async execute(interaction) {
@@ -25,10 +25,10 @@ module.exports = {
             return interaction.reply({ content : `La commande **'${commandName}'** n'existe pas ❌`, flags: MessageFlags.Ephemeral });
         }
 
-        delete require.cache[require.resolve(`./${command.data.name}.js`)];
+        delete require.cache[require.resolve(`../${command.category}/${command.data.name}.js`)];
 
         try {
-            const newCommand = require(`./${command.data.name}.js`);
+            const newCommand = require(`../${command.category}/${command.data.name}.js`);
 
             interaction.client.commands.set(newCommand.data.name, newCommand);
             await interaction.reply({ content : `La commande **'${newCommand.data.name}'** a été mise à jour ✅`, flags: MessageFlags.Ephemeral });

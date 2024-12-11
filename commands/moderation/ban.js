@@ -1,14 +1,14 @@
 const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits, flatten } = require("discord.js");
 
 module.exports = {
-    category: "admin",
+    category: "moderation",
     data: new SlashCommandBuilder()
 		.setName('ban')
-		.setDescription('Permet de bannir un membre')
+		.setDescription('Permet de bannir un membre.')
 		.addUserOption(option =>  
 			option
                 .setName('cible')
-				.setDescription('Le membre à kick')
+				.setDescription('Le membre à ban.')
 				.setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 

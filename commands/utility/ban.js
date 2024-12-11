@@ -16,7 +16,7 @@ module.exports = {
     async execute(interaction) {
         const user = interaction.options.getUser('cible');
 
-        // Impossibilité de se bannir sois même
+        // Impossibilité de se bannir sois même 
         if (interaction.user.id == user.id)
         {
             return interaction.reply({content: `Vous ne pouvez pas vous bannir vous même ❌`, flags: MessageFlags.Ephemeral});

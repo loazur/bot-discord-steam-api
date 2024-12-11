@@ -15,6 +15,12 @@ module.exports = {
     
     async execute(interaction) {
         const user = interaction.options.getUser('cible');
+
+        // Impossibilité de se kick sois même 
+        if (interaction.user.id == user.id)
+        {
+            return interaction.reply({content: `Vous ne pouvez pas vous bannir vous même ❌`, flags: MessageFlags.Ephemeral});
+        }
         
         try {
             await interaction.guild.members.kick(user);

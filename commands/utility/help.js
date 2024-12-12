@@ -26,7 +26,6 @@ module.exports = {
                 case "utility":
                     
                     field_utility += `- **/${command.data.name}** - ${command.data.description} \n`;
-                    console.log(command);
                     break;
 
                 case "moderation":
@@ -39,7 +38,6 @@ module.exports = {
             }
         });
 
-        
         
         helpEmbed.addFields(
             { name: '__Utility:__', value: field_utility },

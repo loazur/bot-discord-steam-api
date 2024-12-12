@@ -37,6 +37,5 @@ module.exports = {
             console.error(error);
             await interaction.reply({ content : `Une erreur est survenu lors du redémarrage de **'${command.data.name}'**:\n ${error.message}`, flags: MessageFlags.Ephemeral });
         }
-
 	},
 };

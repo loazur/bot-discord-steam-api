@@ -11,7 +11,7 @@ module.exports = {
 		
         const helpEmbed = new EmbedBuilder()
             .setColor("White")
-            .setTitle('__Help:__')
+            .setTitle('__/Help:__')
             .setDescription("Voici les informations sur les commandes existantes.")
             .setThumbnail(`${interaction.client.user.avatarURL()}`)
             .setTimestamp()

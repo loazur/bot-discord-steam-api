@@ -9,7 +9,7 @@ module.exports = {
         .addIntegerOption(option =>
             option
                 .setName("nombre")
-                .setDescription("Le nombre de messages à supprimer (Max : 100)")
+                .setDescription("Le nombre de messages à supprimer (1-100)")
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
         

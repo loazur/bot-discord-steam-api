@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageFlags, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
     category: "utility",
@@ -11,7 +11,7 @@ module.exports = {
 		
         const helpEmbed = new EmbedBuilder()
             .setColor("White")
-            .setTitle('__/Help:__')
+            .setTitle('__/help:__')
             .setDescription("Voici les informations sur les commandes existantes.")
             .setThumbnail(`${interaction.client.user.avatarURL()}`)
             .setTimestamp()

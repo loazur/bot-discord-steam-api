@@ -24,7 +24,6 @@ module.exports = {
         commandsList.forEach(command => {
             switch (command.category) {
                 case "utility":
-                    
                     field_utility += `- **/${command.data.name}** - ${command.data.description} \n`;
                     break;
 

@@ -4,11 +4,11 @@ module.exports = {
     category: "bot-owner",
     data: new SlashCommandBuilder()
 		.setName('set-presence')
-		.setDescription('Change le status du bot')
+		.setDescription('Change le status du bot.')
 		.addStringOption(option =>  
 			option
                 .setName('status')
-				.setDescription('Le nouveau status à attrivuer')
+				.setDescription('Le nouveau status à attribuer')
 				.setRequired(true)),
 
 	async execute(interaction) {

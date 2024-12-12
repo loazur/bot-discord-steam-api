@@ -47,9 +47,7 @@ module.exports = {
 
             await interaction.reply({content: `Le status de __**${interaction.client.user.username}**__ a été changé avec succés ✅`, flags: MessageFlags.Ephemeral});
         } catch (error) {
-            console.error(error);
             await interaction.reply({content: `Une erreur est survenue lors du changement de status.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral})
         }
-   
     },
 };

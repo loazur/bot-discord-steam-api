@@ -26,7 +26,6 @@ module.exports = {
             await interaction.guild.members.ban(user);
             await interaction.reply(`${user} a bien été banni ✅`);
         } catch (error) {
-            console.error(error);
             await interaction.reply({content: `Une erreur est survenue lors du bannissement.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral})
         }
     }

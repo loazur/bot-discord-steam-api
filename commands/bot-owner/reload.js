@@ -22,7 +22,7 @@ module.exports = {
 
         if (!command)
         {
-            return interaction.reply({ content : `La commande **'${commandName}'** n'existe pas ❌`, flags: MessageFlags.Ephemeral });
+            return interaction.reply({ content : `La commande **__${commandName}__** n'existe pas ❌`, flags: MessageFlags.Ephemeral });
         }
 
         delete require.cache[require.resolve(`../${command.category}/${command.data.name}.js`)];
@@ -31,11 +31,11 @@ module.exports = {
             const newCommand = require(`../${command.category}/${command.data.name}.js`);
 
             interaction.client.commands.set(newCommand.data.name, newCommand);
-            await interaction.reply({ content : `La commande **'${newCommand.data.name}'** a été mise à jour ✅`, flags: MessageFlags.Ephemeral });
+            await interaction.reply({ content : `La commande **__${newCommand.data.name}__** a été mise à jour ✅`, flags: MessageFlags.Ephemeral });
 
         } catch (error) {
             console.error(error);
-            await interaction.reply({ content : `Une erreur est survenu lors du redémarrage de **'${command.data.name}'**:\n ${error.message}`, flags: MessageFlags.Ephemeral });
+            await interaction.reply({ content : `Une erreur est survenu lors du redémarrage de **__${command.data.name}__**:\n ${error.message}`, flags: MessageFlags.Ephemeral });
         }
 	},
 };

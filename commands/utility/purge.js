@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits, Collection } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require("discord.js");
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
@@ -13,7 +13,6 @@ module.exports = {
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
         
-
     async execute(interaction) {        
         const numberOfMessages = interaction.options.getInteger("nombre");
 

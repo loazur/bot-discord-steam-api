@@ -1,5 +1,5 @@
-const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits } = require("discord.js");
-const { guildId } = require('../../config.json');
+const { SlashCommandBuilder, MessageFlags, PermissionFlagsBits, Collection } = require("discord.js");
+const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
     category: "utility",
@@ -9,29 +9,28 @@ module.exports = {
         .addIntegerOption(option =>
             option
                 .setName("nombre")
-                .setDescription("Le nombre de messages à supprimer.")
+                .setDescription("Le nombre de messages à supprimer (Max : 99)")
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
         
 
-    async execute(interaction) {
-        // Commande en développement. 
-        if (interaction.guildId != guildId)
-        {
-            return interaction.reply({content: "*Commande en cours d'implémentation...*", flags: MessageFlags.Ephemeral});
-        }
-
-        const channelMessages = interaction.channel.messages;
+    async execute(interaction) {        
         const numberOfMessages = interaction.options.getInteger("nombre");
 
-        //TODO
-        /*
-        channelMessages.fetch({ limit: numberOfMessages, cache: false })
-            .then(messages => 
-                console.log(messages)
-            )
-            .catch(console.error);
-        */
-        await interaction.reply("*pas fini*");
+        try {
+            const deletedMessages = await interaction.channel.bulkDelete(numberOfMessages, true);
+
+            if (deletedMessages.size == 0)
+            {
+                return interaction.reply({content: `Aucun messages à supprimer ✅`, flags: MessageFlags.Ephemeral});
+            }
+
+            await interaction.reply(`**${deletedMessages.size}** messages ont bien été supprimés ✅`);
+            await wait(1_000);
+            await interaction.deleteReply();
+        } catch (error) {
+            await interaction.reply({content: `Une erreur est survenue lors du unban.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral});
+        }
+        
     }   
 }

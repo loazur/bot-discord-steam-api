@@ -23,6 +23,7 @@ module.exports = {
 
         const numberOfMessages = interaction.options.getInteger("nombre");
 
+        // TODO
         await interaction.reply("caca");
     }
 }

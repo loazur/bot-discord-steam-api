@@ -21,9 +21,17 @@ module.exports = {
             return interaction.reply({content: "*Commande en cours d'implémentation...*", flags: MessageFlags.Ephemeral});
         }
 
+        const channelMessages = interaction.channel.messages;
         const numberOfMessages = interaction.options.getInteger("nombre");
 
-        // TODO
-        await interaction.reply("caca");
-    }
+        //TODO
+        /*
+        channelMessages.fetch({ limit: numberOfMessages, cache: false })
+            .then(messages => 
+                console.log(messages)
+            )
+            .catch(console.error);
+        */
+        await interaction.reply("*pas fini*");
+    }   
 }

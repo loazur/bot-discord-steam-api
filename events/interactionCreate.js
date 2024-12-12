@@ -4,6 +4,7 @@ const { Events, MessageFlags } = require('discord.js');
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
+		if (!interaction.guild) return await interaction.reply("Impossibilité d'exécuter des commandes en messages privés ❌");
 		if (!interaction.isChatInputCommand()) return;
 
 		const command = interaction.client.commands.get(interaction.commandName);

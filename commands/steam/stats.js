@@ -21,8 +21,6 @@ module.exports = {
         try {
             const id = await steam.others.resolve(`/id/${username}`);
             const result = await steam.users.getUserSummary(id);
-
-            console.log(result);
             
             const statsEmbed = new EmbedBuilder()
                 .setColor("Blurple")

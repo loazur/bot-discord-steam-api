@@ -20,7 +20,7 @@ module.exports = {
             await interaction.guild.members.unban(user);
             await interaction.reply(`${user} a bien été unban ✅`);
         } catch (error) {
-            await interaction.reply({content: `Une erreur est survenue lors du unban.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral})
+            await interaction.reply({content: `Une erreur est survenue lors du unban.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral})
         }
     }
 

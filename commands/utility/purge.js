@@ -28,7 +28,7 @@ module.exports = {
             await wait(1_000);
             await interaction.deleteReply();
         } catch (error) {
-            await interaction.reply({content: `Une erreur est survenue lors du unban.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral});
+            await interaction.reply({content: `Une erreur est survenue lors du unban.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral});
         }
         
     }   

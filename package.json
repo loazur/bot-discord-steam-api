@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.16.3",
+    "get-palette": "^0.1.2",
     "steamAPI": "^0.0.1",
     "steamapi-node": "^2.0.3"
   },

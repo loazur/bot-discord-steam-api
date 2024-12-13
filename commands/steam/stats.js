@@ -81,6 +81,7 @@ module.exports = {
                 .addFields(
                     { name: "SteamID", value: `\`${infos.steamID || "Inconnu"}\``, inline: true },
                     { name: "Niveau", value: `\`${lvl}\``, inline: true },
+                    { name: "Date de création", value: `\`${new Date(infos.created * 1000).toLocaleString() || "Inconnu"}\``},
                     { name: "Nombre d'amis", value: `${friends.length} ${friends.length === 0 ? "ami" : "amis"}` },
                 );
 
@@ -88,7 +89,7 @@ module.exports = {
             // Ajouter la section des jeux si elle est disponible
             if (gamesOwned) {
                 statsEmbed.addFields(
-                    { name: "Jeux possédés", value: `${gamesOwned.length} jeux \n Plus joué: **${mostPlayedGameDetails.name}** - ${playTimeText}`});
+                    { name: "Jeux possédés", value: `${gamesOwned.length} jeux \nPlus joué: **${mostPlayedGameDetails.name}** - ${playTimeText}`});
             } 
             else {
                 statsEmbed.addFields(

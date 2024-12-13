@@ -7,7 +7,7 @@ module.exports = {
     category: "steam",
     data: new SlashCommandBuilder()
 		.setName('stats')
-		.setDescription('Affiche les stats d\'un utilisateur choisit')
+		.setDescription('Affiche les stats d\'un utilisateur choisit.')
         .addStringOption(option =>
             option
                 .setName("username")

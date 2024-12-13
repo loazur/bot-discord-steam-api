@@ -3,9 +3,6 @@ const { guildId, steamAPI_key } = require("../../config.json")
 const SteamUser = require('steamapi-node');
 const steam = new SteamUser(steamAPI_key);
 
-const axios = require('axios');
-const cheerio = require('cheerio'); // Pour analyser le HTML
-
 module.exports = {
     category: "steam",
     data: new SlashCommandBuilder()

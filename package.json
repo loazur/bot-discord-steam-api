@@ -9,8 +9,6 @@
   "author": "loazur",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.9",
-    "cheerio": "^1.0.0",
     "discord.js": "^14.16.3",
     "steamAPI": "^0.0.1",
     "steamapi-node": "^2.0.3"

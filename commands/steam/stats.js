@@ -3,28 +3,46 @@ const { guildId, steamAPI_key } = require("../../config.json")
 const SteamUser = require('steamapi-node');
 const steam = new SteamUser(steamAPI_key);
 
+const axios = require('axios');
+const cheerio = require('cheerio'); // Pour analyser le HTML
+
 module.exports = {
     category: "steam",
     data: new SlashCommandBuilder()
 		.setName('stats')
-		.setDescription('Affiches les stats d\'un utilisateur choisit'),
+		.setDescription('Affiche les stats d\'un utilisateur choisit')
+        .addStringOption(option =>
+            option
+                .setName("username")
+                .setDescription("Le nom du compte Steam a afficher.")
+                .setRequired(true)
+        ),
 	 
     async execute(interaction) {
-        // En dév
-        if (interaction.guildId != guildId) 
-        {
-            return interaction.reply({content: "*Commande en cours d'implémentation...*", flags: MessageFlags.Ephemeral})
-        }
-
+        const username = interaction.options.getString("username");
+        
         try {
-            steam.others.resolve('profiles/76561199223943541/').then(id => {
-                // handle returned data
-                steam.users.getUserSummary(id).then(result => {
-                    console.log(result);
-                })
-            })
+            const id = await steam.others.resolve(`/id/${username}`);
+            const result = await steam.users.getUserSummary(id);
 
-            await interaction.reply("command reçu");
+            console.log(result);
+            
+            const statsEmbed = new EmbedBuilder()
+                .setColor("Blurple")
+                .setTitle(`Profil de **__${result.nickname}__**`)
+                .addFields(
+                    {name: "SteamID", value: `*${result.steamID}*`},
+                    {name: "Compte crée", value: `*${new Date(result.created * 1000).toLocaleString()}*`},
+                    {name: "Statut", value: `*${result.personaState === 0 ? `__Hors ligne__` : "__En ligne__"}*`},
+                    {name: "URL du Profil", value: `${result.profileURL}`}
+                )
+                .setImage(result.avatar.large)
+                .setTimestamp()
+                .setFooter({ text: `SteamStats`, iconURL: `https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png` });
+
+            await interaction.reply({embeds: [statsEmbed]});
+                
+             
         } catch (error) {
             await interaction.reply({content: `Une erreur est survenue lors du changement de status.\nErreur : \`${error}\``, flags: MessageFlags.Ephemeral})
         }

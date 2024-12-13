@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, MessageFlags, ActivityType } = require("discord.js");
+const { ownerId } = require("../../config.json");
 
 module.exports = {
     category: "bot-owner",
@@ -22,9 +23,9 @@ module.exports = {
 				.setRequired(true)),
 
 	async execute(interaction) {
-        // ID de loazur
-        if (interaction.user.id != '496730516234436618') {
-            return interaction.reply({ content : "Commande inutilisable pour vous 🛠️", flags : MessageFlags.Ephemeral })
+        // Reserved Bot-owner command
+        if (interaction.user.id != ownerId) {
+            return interaction.reply({ content : "Commande inutilisable pour vous 🛠️", flags : MessageFlags.Ephemeral });
         }
 
         const activity = interaction.options.getString("activity");

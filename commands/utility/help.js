@@ -19,7 +19,7 @@ module.exports = {
 
         let field_utility = "";
         let field_moderation = "";
-        let field_botOwner = "";
+        let field_steam = "";
 
         commandsList.forEach(command => {
             switch (command.category) {
@@ -31,8 +31,8 @@ module.exports = {
                     field_moderation += `- **/${command.data.name}** - ${command.data.description} \n`;
                     break;
 
-                case "bot-owner":
-                    field_botOwner += `- **/${command.data.name}** - ${command.data.description} \n`;
+                case "steam":
+                    field_steam += `- **/${command.data.name}** - ${command.data.description} \n`;
                     break;
             }
         });
@@ -41,7 +41,7 @@ module.exports = {
         helpEmbed.addFields(
             { name: '__Utility:__', value: field_utility },
             { name: '__Moderation:__', value: field_moderation },
-            { name: '__Bot-owner:__', value: field_botOwner },
+            { name: '__Steam:__', value: field_steam },
             { name: '\u200b', value: '*D\'autres commandes seront ajoutées prochainement.*' }
         )
 

@@ -40,7 +40,7 @@ module.exports = {
         
         helpEmbed.addFields(
             { name: '__Utility ✪__', value: field_utility },
-            { name: '__Moderation 🛠__', value: field_moderation },
+            { name: '__Moderation ♔__', value: field_moderation },
             { name: '__Steam ♛__', value: field_steam },
             { name: '\u200b', value: '*D\'autres commandes seront ajoutées prochainement.*' }
         )

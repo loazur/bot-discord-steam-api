@@ -7,7 +7,7 @@ module.exports = {
     category: "steam",
     data: new SlashCommandBuilder()
 		.setName('stats')
-		.setDescription('Affiche des stats d\'un utilisateur choisi.'),
+		.setDescription('Affiches les stats d\'un utilisateur choisit'),
 	 
     async execute(interaction) {
         // En dév

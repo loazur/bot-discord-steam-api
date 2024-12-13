@@ -22,7 +22,7 @@ module.exports = {
         const username = interaction.options.getString("username");
         
         try {
-            await interaction.deferReply()
+            await interaction.deferReply();
 
             // Toutes les données
             const id = await steam.others.resolve(`/id/${username}`);
@@ -104,7 +104,7 @@ module.exports = {
         
             await interaction.editReply({ embeds: [statsEmbed] });
         } catch (error) {
-            await interaction.editReply({content: `Une erreur est survenue lors de l'affichage des stats Steam.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral})
+            await interaction.editReply({content: `Une erreur est survenue lors de l'affichage des stats Steam.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral});
         }
         
     }

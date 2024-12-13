@@ -26,7 +26,7 @@ module.exports = {
             await interaction.guild.members.kick(user);
             await interaction.reply(`${user} a bien été kick ✅`);
         } catch (error) {
-            await interaction.reply({content: `Une erreur est survenue lors du kick.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral})
+            await interaction.reply({content: `Une erreur est survenue lors du kick.\nErreur : \`${error.message}\``, flags: MessageFlags.Ephemeral});
         }
     }
 

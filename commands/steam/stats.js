@@ -83,7 +83,9 @@ module.exports = {
                     { name: "Niveau", value: `\`${lvl}\``, inline: true },
                     { name: "Date de création", value: `\`${new Date(infos.created * 1000).toLocaleString() || "Inconnu"}\``},
                     { name: "Nombre d'amis", value: `${friends.length} ${friends.length === 0 ? "ami" : "amis"}` },
-                );
+                )
+                .setTimestamp()
+                .setFooter({ text: `SteamStats`, iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1024px-Steam_icon_logo.svg.png' });
 
         
             // Ajouter la section des jeux si elle est disponible

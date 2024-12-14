@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, MessageFlags } = require("discord.js");
-const { guildId, steamAPI_key } = require("../../config.json")
+const { steamAPI_key } = require("../../config.json")
 
 const SteamUser = require('steamapi-node');
 const steam = new SteamUser(steamAPI_key);

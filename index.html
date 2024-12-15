@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>															<!-- Fichier de la page de nobody pour OAuth2 -->
+		<title>nobody.</title>
+	</head>
+	<body>
+		<h1>Site nobody</h1>
+        <div id="info">hah</div>
+		<!-- bien changer l'url pour que response_type sa sois token -->
+		<a id="login" style="display: none;" href="https://discord.com/oauth2/authorize?client_id=1316057311944380436&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A53134&scope=identify">Connectes toi</a>
+		<script>
+			
+			window.onload = () => {
+				const fragment = new URLSearchParams(window.location.hash.slice(1));
+				const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+		
+				if (!accessToken) {
+					return (document.getElementById('login').style.display = 'block');
+				}
+		
+				fetch('https://discord.com/api/users/@me', {
+					headers: {
+						authorization: `${tokenType} ${accessToken}`,
+					},
+				})
+					.then(result => result.json())
+					.then(response => {
+						const { username, id } = response;
+
+						document.getElementById('info').innerText = `Salut ${username} - ${id} !`;
+						
+					})
+					.catch(console.error);
+			};
+
+			
+
+		</script>
+	</body>
+</html>

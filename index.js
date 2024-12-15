@@ -2,7 +2,7 @@
 const fs = require("node:fs");
 const path = require('node:path');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
-const { token } = require('./config.json');
+const { token, serverPort } = require('./config.json');
 
 // Créé une nouvelle instance de client
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -46,6 +46,16 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
+
+// EXPRESS
+const express = require('express');
+const app = express();
+
+app.get('/', (request, response) => {
+	return response.sendFile('./index.html', { root: '.' });
+});
+
+app.listen(serverPort, () => console.log(`App listening at http://localhost:${serverPort}`));
 
 // Se connecte
 client.login(token);

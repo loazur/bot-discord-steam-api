@@ -59,7 +59,7 @@ module.exports = {
                     {
                         hasFoundAcc = true;
 
-                        id = await steam.others.resolve(`/profiles/${donnee.steamID}`);
+                        id = await steam.others.resolve(`/profiles/${donnee.steamId}`);
                         break;
                     }
                 };

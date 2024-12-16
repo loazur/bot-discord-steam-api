@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, MessageFlags } = require("discord.js");
-const { ownerId, steamAPI_key } = require("../../config.json")
+const { ownerId } = require("../../config.json")
 
 const fs = require("node:fs/promises");
 const path = require("node:path");

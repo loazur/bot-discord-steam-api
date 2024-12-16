@@ -47,6 +47,7 @@ for (const file of eventFiles) {
 	}
 }
 
+/*
 // EXPRESS
 const express = require('express');
 const app = express();
@@ -56,6 +57,7 @@ app.get('/', (request, response) => {
 });
 
 app.listen(serverPort, () => console.log(`App listening at http://localhost:${serverPort}`));
+*/
 
 // Se connecte
 client.login(token);

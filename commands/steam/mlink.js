@@ -50,6 +50,6 @@ module.exports = {
         existingData.push(data);
 
         await fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf-8');
-        await interaction.reply(`Le compte de **__${userToAdd.tag}__** a bien été lier ✅`)
+        await interaction.reply(`Le compte de **__${userToAdd.tag}__** a bien été lié ✅`)
     }
 }

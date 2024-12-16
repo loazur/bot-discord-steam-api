@@ -34,50 +34,50 @@ module.exports = {
 
         // Pour pouvoir le changer dans chaque subcommand
         let id;
+        try {
+            switch(command) {
+                case "url-perso": //* Commande en utilisant l'url perso
+                    
+                    const urlperso = interaction.options.getString("url");
+                    id = await steam.others.resolve(`/id/${urlperso}`);
+                    break;
 
-        switch(command) {
-            case "url-perso": //* Commande en utilisant l'url perso
-                
-                const urlperso = interaction.options.getString("url");
-                id = await steam.others.resolve(`/id/${urlperso}`);
-                break;
+                case "user": //* Commande en utilisant l'user
+                    
+                    const userToCheck = interaction.options.getUser("user");
+                    
+                    const filePath = path.join(__dirname, "data.json")
+                    const fileContent = await fs.readFile(filePath, {encoding: "utf-8"})
+                    
+                    let existingData = fileContent ? JSON.parse(fileContent) : [];
+                    
+                    let hasFoundAcc = false;
 
-            case "user": //* Commande en utilisant l'user
-                
-                const userToCheck = interaction.options.getUser("user");
-                
-                const filePath = path.join(__dirname, "data.json")
-                const fileContent = await fs.readFile(filePath, {encoding: "utf-8"})
-                
-                let existingData = fileContent ? JSON.parse(fileContent) : [];
-                
-                let hasFoundAcc = false;
+                    // On vérifie si il est dans le data.json
+                    for (let donnee of existingData) {
+                        if (donnee.id === userToCheck.id)
+                        {
+                            hasFoundAcc = true;
 
-                // On vérifie si il est dans le data.json
-                for (let donnee of existingData) {
-                    if (donnee.id === userToCheck.id)
+                            id = await steam.others.resolve(`/profiles/${donnee.steamId}`);
+                            break;
+                        }
+                    };
+
+
+                    if (!hasFoundAcc)
                     {
-                        hasFoundAcc = true;
-
-                        id = await steam.others.resolve(`/profiles/${donnee.steamId}`);
-                        break;
+                        return interaction.editReply(`**__${userToCheck.tag}__** n'a pas lié son compte Steam ❌`)
                     }
-                };
+                    
 
-
-                if (!hasFoundAcc)
-                {
-                    return interaction.editReply(`**__${userToCheck.tag}__** n'a pas lié son compte Steam ❌`)
+                    break;
                 }
-                
-
-                break;
-            }
 
             
 
         // * Le reste de la commande qui se fais pour les deux cas
-        try {
+       
             const infos = await steam.users.getUserSummary(id) || {};
             const lvl = (await steam.users.getUserLevel(id)) || "Inconnu";
             const friends = (await steam.users.getUserFriends(id)) || [];

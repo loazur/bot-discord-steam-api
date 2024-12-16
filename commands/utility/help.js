@@ -22,6 +22,10 @@ module.exports = {
         let field_steam = "";
 
         commandsList.forEach(command => {
+            if (command.data.name == "mlink") {
+                return;
+            }
+
             switch (command.category) {
                 case "utility":
                     field_utility += `- **/${command.data.name}** - ${command.data.description} \n`;

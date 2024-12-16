@@ -8,7 +8,7 @@ module.exports = {
     category: "steam",
     data: new SlashCommandBuilder()
 		.setName('mlink')
-		.setDescription('Permet de lier un compte Discord/SteamID manuellement.')
+		.setDescription('Permet de lier un compte manuellement.')
         .addUserOption(option =>  
 			option
                 .setName('user')

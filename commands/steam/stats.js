@@ -23,7 +23,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('user')
-                .setDescription('Affiche les stats d\'un utilisateur grâce à son user')
+                .setDescription('Affiche les stats d\'un utilisateur grâce à son user.')
                 .addUserOption(option => option.setName('user').setDescription('Le compte Discord de l\'utilisateur à afficher.').setRequired(true))),
         
 	 

@@ -2,7 +2,7 @@ const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 const { ownerId, serverPort} = require("../../config.json");
 
 module.exports = {
-    category: "steam",
+    category: "bot-owner",
     data: new SlashCommandBuilder()
 		.setName('t')
 		.setDescription('hah'),

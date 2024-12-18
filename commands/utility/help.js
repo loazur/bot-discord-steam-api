@@ -21,8 +21,10 @@ module.exports = {
         let field_moderation = "";
         let field_steam = "";
 
+        const commandExclues = ["mlink", "list-linked"];
+
         commandsList.forEach(command => {
-            if (command.data.name == "mlink") {
+            if (commandExclues.includes(command.data.name)) {
                 return;
             }
 

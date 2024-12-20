@@ -19,29 +19,6 @@ module.exports = {
             return interaction.reply({content: "*En cours d'implémentation...*", flags: MessageFlags.Ephemeral})
         }
         
-        /*
-        const filePath = path.join(__dirname, "data.json")
-        const fileContent = await fs.readFile(filePath, {encoding: "utf-8"})
-        
-        let existingData = fileContent ? JSON.parse(fileContent) : [];
-
-        for (let donnee of existingData) {
-            if (donnee.user === interaction.user.tag)
-            {
-                return interaction.reply("Vous etes deja lier.")
-            }
-        };
-
-        let data = {
-            user: interaction.user.tag,
-            id: interaction.user.id
-            // steamID: 
-        };
-
-        existingData.push(data);
-
-        await fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf-8');
-        */
         await interaction.reply("la commande ne fais rien");
 
         

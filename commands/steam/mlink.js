@@ -35,9 +35,15 @@ module.exports = {
         let existingData = fileContent ? JSON.parse(fileContent) : [];
 
         for (let donnee of existingData) {
-            if (donnee.user === userToAdd.tag)
-            {
-                return interaction.reply("Le compte est déjà lié ✅")
+            if (donnee.id === userToAdd.id)
+            {   
+                // Si jamais il a changé son pseudo 
+                if (donnee.user != userToAdd.tag)
+                {
+                    donnee.user = userToAdd.tag;
+                }
+
+                return interaction.reply("Le compte est déjà lié ✅");
             }
         };
 

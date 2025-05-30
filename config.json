@@ -1,10 +1,10 @@
 {
 	"ownerId": "496730516234436618",
-	"guildId": "496730938886324235" ,
-	"clientId": "1316057311944380436",
-	"clientSecret": "a9W3zL_EhlrjcVyqNB4du8JUyGnfVxg6",
-	"token": "MTMxNjA1NzMxMTk0NDM4MDQzNg.GA3s1s.ZNgGEPgdL0uyw2hxPIWPAw2cdarNdnORLfo7Tc",
-	"steamAPI_key": "3AAEE116EEEB7F8F2E8560B76ECE61A6",
+	"guildId": "" ,
+	"clientId": "",
+	"clientSecret": "",
+	"token": "",
+	"steamAPI_key": "",
 
 	"serverPort": 53134
 }
